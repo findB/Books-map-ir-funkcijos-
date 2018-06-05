@@ -5,11 +5,11 @@ var books = [
     },
     {
         title: "Knyga 2",
-        price: 11.25
+        price: 7.25
     },
     {
         title: "Knyga 3",
-        price: 12.25
+        price: 32.25
     },
     {
         title: "Knyga 4",
@@ -27,7 +27,8 @@ var books = [
 const printBooksList = function () {
     console.log("Knygu sarasas");
     books.map(function (book, index) {
-        console.log(index + " Knygos pavadinimas: ", book.title);
+        console.log(index + " Knygos pavadinimas: " + book.title,
+                   " kaina: " + book.price);
     })
 };
 
@@ -81,6 +82,39 @@ books.map(function(book){
 
 
 printBooks(discounteBooks, "----Nukainota----");
+
+// ================ Rusiavimas ====================
+
+
+let sortedBookByPrice = books.sort(function(a, b) {
+    if (a.price < b.price) return -1;
+    if (a.price > b.price) return 1;
+    return 0;
+});
+
+//console.log(sortedBookByPrice);
+
+console.log("SURUSIUOTOS KNYGOS");
+
+printBooksList(sortedBookByPrice);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
