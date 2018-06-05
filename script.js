@@ -98,6 +98,18 @@ console.log("SURUSIUOTOS KNYGOS");
 
 printBooksList(sortedBookByPrice);
 
+// ===================Filtravimas=================
+
+let filteredBooks = books.filter(function(book){
+    return book.price > 10;
+});
+
+console.log("FILTRAVIMAS per console");
+console.log(filteredBooks);
+
+// ===============reduce==================
+
+
 
 
 
