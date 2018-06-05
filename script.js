@@ -36,6 +36,7 @@ printBooksList();
 
 
 // NUOLAIDOS, kurios brangesnes nei 10 eur i nauja masyva 
+/*
 const discount = 25;
 let discounteBooks = [];
 books.map(function(book){
@@ -47,7 +48,7 @@ books.map(function(book){
         discounteBooks.push(discounteBook);
     } 
 });
-
+*/
 
 // =================== Universlaus ==========================
 const printBooks = function (booksList, headline) {
@@ -61,33 +62,25 @@ const printBooks = function (booksList, headline) {
 };
 
 
-printBooks(discounteBooks, "Nukainota");
+//printBooks(discounteBooks, "Nukainota");
 
 
+// ====================== ANTRA VERSIJA =======================
 
-
-
-
-
-//// spausdinam su map
-//books.map(function (book, index) {
-//    console.log(index + " Knygos pavadinimas: ", book.title);
-//})
-//
-//// sudeda suma su map
-let totalSum = 0;
-books.map(function (book) {
-    totalSum = totalSum + book.price;
+const discount = 25;
+let discounteBooks = [];
+books.map(function(book){
+    if (book.price > 10){
+        let discounteBook = Object.assign({}, book);
+        let calculatedNewPrice = book.price * (1 - discount/100);
+        discounteBook.newPrice = calculatedNewPrice.toFixed(2);
+        discounteBook.discount = discount;
+        discounteBooks.push(discounteBook);
+    } 
 });
-//
-//// -----------------reduce() ---------------------
-//[0, 1, 2, 3, 4].reduce(function (accumulator, currentValue, currentIndex, array) {
-//    return accumulator + currentValue;
-//});
-//
-//
-//// ------------------------------------------------
-//
-//// funkcija print
+
+
+printBooks(discounteBooks, "----Nukainota----");
+
 
 
